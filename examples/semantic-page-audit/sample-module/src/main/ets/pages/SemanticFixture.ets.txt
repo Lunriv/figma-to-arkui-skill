@@ -1,0 +1,45 @@
+interface SemanticOption {
+  id: string;
+  label: ResourceStr;
+}
+
+@ComponentV2
+struct SemanticFixture {
+  @Local tabIndex: number = 0;
+  @Local selectedOptionId: string = 'option_a';
+  @Local message: string = '';
+  options: SemanticOption[] = [
+    { id: 'option_a', label: $r('app.string.semantic_primary_option') },
+    { id: 'option_b', label: $r('app.string.semantic_secondary_option') }
+  ];
+
+  build() {
+    Column({ space: 12 }) {
+      Tabs({ index: this.tabIndex }) {
+        TabContent() {
+          List({ space: 12 }) {
+            ForEach(this.options, (option: SemanticOption) => {
+              ListItem() {
+                Text(option.label)
+                  .fontFamily('HarmonyOS Sans')
+                  .fontWeight(400)
+                  .onClick(() => {
+                    this.selectedOptionId = option.id;
+                  });
+              }
+            }, (option: SemanticOption) => option.id)
+          }
+          .listDirection(Axis.Horizontal)
+        }
+      }
+      .onChange((index: number) => {
+        this.tabIndex = index;
+      });
+
+      TextArea({ placeholder: $r('app.string.semantic_input_placeholder'), text: this.message })
+        .onChange((value: string) => {
+          this.message = value;
+        });
+    }
+  }
+}

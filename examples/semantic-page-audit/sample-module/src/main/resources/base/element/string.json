@@ -1,0 +1,9 @@
+{
+  "string": [
+    { "name": "semantic_primary_mode", "value": "Mode one" },
+    { "name": "semantic_secondary_mode", "value": "Mode two" },
+    { "name": "semantic_primary_option", "value": "Option one" },
+    { "name": "semantic_secondary_option", "value": "Option two" },
+    { "name": "semantic_input_placeholder", "value": "Enter content" }
+  ]
+}

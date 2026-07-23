@@ -1,0 +1,159 @@
+{
+  "decisionAuthorities": [
+    {
+      "id": "tabs-decision",
+      "decisionPacketId": "tabs-packet",
+      "impact": "high",
+      "decisionDomains": ["business-semantic", "layout-strategy", "interaction", "component-boundary", "arkui-api"],
+      "aiDecisionRequired": true,
+      "decisionMaker": "ai",
+      "aiDecisionStatus": "confirmed",
+      "decisionProvenance": "fresh-ai-review",
+      "contextDeltaChecked": true,
+      "documentEvidenceIds": ["arkui-tabs"]
+    },
+    {
+      "id": "options-decision",
+      "decisionPacketId": "options-packet",
+      "impact": "high",
+      "decisionDomains": ["business-semantic", "layout-strategy", "interaction", "component-boundary", "arkui-api"],
+      "aiDecisionRequired": true,
+      "decisionMaker": "ai",
+      "aiDecisionStatus": "confirmed",
+      "decisionProvenance": "cached-evidence-revalidated",
+      "contextDeltaChecked": true,
+      "documentEvidenceIds": ["arkui-list"]
+    },
+    {
+      "id": "composer-decision",
+      "decisionPacketId": "composer-packet",
+      "impact": "high",
+      "decisionDomains": ["business-semantic", "layout-strategy", "interaction", "component-boundary", "arkui-api"],
+      "aiDecisionRequired": true,
+      "decisionMaker": "ai",
+      "aiDecisionStatus": "confirmed",
+      "decisionProvenance": "fresh-ai-review",
+      "contextDeltaChecked": true,
+      "documentEvidenceIds": ["arkui-text-area"]
+    },
+    {
+      "id": "visual-asset-closure",
+      "decisionPacketId": "visual-asset-packet",
+      "impact": "high",
+      "decisionDomains": ["visual-closure", "resource-identity"],
+      "aiDecisionRequired": true,
+      "decisionMaker": "ai",
+      "aiDecisionStatus": "confirmed",
+      "decisionProvenance": "fresh-ai-review",
+      "contextDeltaChecked": true,
+      "documentEvidenceIds": []
+    }
+  ],
+  "requirements": [
+    {
+      "id": "tabs",
+      "decisionAuthorityIds": ["tabs-decision"],
+      "sourceFiles": ["examples/semantic-page-audit/sample-module/src/main/ets/pages/SemanticFixture.ets.txt"],
+      "requiredComponents": ["Tabs", "TabContent"],
+      "requiredInteractions": ["tabs-change"],
+      "requiredPresentationApi": "none",
+      "requiredBindingHostSourceNodeIds": [],
+      "requireForEach": false,
+      "forbidTextGlyphFallback": true,
+      "forbidFixedBlank": true
+    },
+    {
+      "id": "options",
+      "decisionAuthorityIds": ["options-decision"],
+      "sourceFiles": ["examples/semantic-page-audit/sample-module/src/main/ets/pages/SemanticFixture.ets.txt"],
+      "requiredComponents": ["List", "ListItem"],
+      "requiredInteractions": ["scroll", "item-selection"],
+      "requiredPresentationApi": "none",
+      "requiredBindingHostSourceNodeIds": [],
+      "requireForEach": true,
+      "forbidTextGlyphFallback": true,
+      "forbidFixedBlank": true
+    },
+    {
+      "id": "composer",
+      "decisionAuthorityIds": ["composer-decision"],
+      "sourceFiles": ["examples/semantic-page-audit/sample-module/src/main/ets/pages/SemanticFixture.ets.txt"],
+      "requiredComponents": ["TextArea"],
+      "requiredInteractions": ["input"],
+      "requiredPresentationApi": "none",
+      "requiredBindingHostSourceNodeIds": [],
+      "requireForEach": false,
+      "forbidTextGlyphFallback": true,
+      "forbidFixedBlank": true
+    }
+  ],
+  "layoutSpecs": [
+    {
+      "layoutId": "semantic-page-shell",
+      "sourceNodeIds": ["1:10"],
+      "parentLayoutId": null,
+      "axis": "vertical",
+      "relation": "packed-fixed-gap",
+      "container": { "mainSizeMode": "content", "designMainSize": 320, "padding": { "before": 0, "after": 0, "crossBefore": 0, "crossAfter": 0 } },
+      "crossAlignment": "stretch",
+      "gap": 12,
+      "children": [
+        { "childId": "tabs", "sourceNodeIds": ["1:11"], "role": "intrinsic", "basis": 100, "minSize": 0, "maxSize": null, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false },
+        { "childId": "composer", "sourceNodeIds": ["1:12"], "role": "intrinsic", "basis": 48, "minSize": 0, "maxSize": null, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false }
+      ],
+      "evidence": [{ "evidenceId": "page-shell-gap", "kind": "design-context", "sourceNodeIds": ["1:10"], "property": "gap", "value": 12 }],
+      "rejectedRelations": [{ "relation": "space-between", "reason": "The container explicitly uses a fixed 12 vp gap", "evidenceIds": ["page-shell-gap"] }],
+      "responsiveTests": [320, 375, 480],
+      "clipping": false,
+      "scrolling": false,
+      "overlayEvidence": []
+    },
+    {
+      "layoutId": "semantic-option-list",
+      "sourceNodeIds": ["1:11"],
+      "parentLayoutId": "semantic-page-shell",
+      "axis": "horizontal",
+      "relation": "scroll-fixed-gap",
+      "container": { "mainSizeMode": "viewport", "designMainSize": 320, "padding": { "before": 0, "after": 0, "crossBefore": 0, "crossAfter": 0 } },
+      "crossAlignment": "start",
+      "gap": 12,
+      "children": [
+        { "childId": "option-a", "sourceNodeIds": ["1:13"], "role": "scroll-item", "basis": 80, "minSize": 80, "maxSize": 80, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false },
+        { "childId": "option-b", "sourceNodeIds": ["1:14"], "role": "scroll-item", "basis": 80, "minSize": 80, "maxSize": 80, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false }
+      ],
+      "evidence": [{ "evidenceId": "option-list-gap", "kind": "design-context", "sourceNodeIds": ["1:11"], "property": "gap", "value": 12 }],
+      "rejectedRelations": [{ "relation": "space-between", "reason": "Homogeneous options preserve fixed width and fixed gap", "evidenceIds": ["option-list-gap"] }],
+      "responsiveTests": [320, 375, 480],
+      "clipping": true,
+      "scrolling": true,
+      "overlayEvidence": []
+    }
+  ],
+  "layoutBindings": [
+    { "layoutBindingId": "bind-page-shell", "layoutId": "semantic-page-shell", "componentId": "semantic-fixture", "targetBuilder": "build", "arkuiStrategy": "packed-fixed-gap", "propertyBindings": [{ "target": "Column", "property": "space", "value": 12, "factPath": "gap" }], "forbiddenProperties": ["justifyContent:SpaceBetween", "child.margin"], "testWidths": [320, 375, 480] },
+    { "layoutBindingId": "bind-option-list", "layoutId": "semantic-option-list", "componentId": "semantic-fixture", "targetBuilder": "build", "arkuiStrategy": "scroll-fixed-gap", "propertyBindings": [{ "target": "List", "property": "space", "value": 12, "factPath": "gap" }, { "target": "List", "property": "scrolling", "value": true, "factPath": "scrolling" }], "forbiddenProperties": ["justifyContent:SpaceBetween", "child.margin"], "testWidths": [320, 375, 480] }
+  ],
+  "textContents": [
+    { "id": "primary-option-content", "value": "Option one", "usage": "option-label", "origin": "design-static" },
+    { "id": "secondary-option-content", "value": "Option two", "usage": "option-label", "origin": "design-static" },
+    { "id": "input-placeholder-content", "value": "Enter content", "usage": "placeholder", "origin": "design-static" }
+  ],
+  "stringResources": [
+    { "id": "primary-option-string", "textContentSpecIds": ["primary-option-content"], "componentId": "semantic-fixture", "targetModule": "examples/semantic-page-audit/sample-module", "sourceFiles": ["examples/semantic-page-audit/sample-module/src/main/ets/pages/SemanticFixture.ets.txt"], "resourceFile": "examples/semantic-page-audit/sample-module/src/main/resources/base/element/string.json", "resourceName": "semantic_primary_option", "value": "Option one" },
+    { "id": "secondary-option-string", "textContentSpecIds": ["secondary-option-content"], "componentId": "semantic-fixture", "targetModule": "examples/semantic-page-audit/sample-module", "sourceFiles": ["examples/semantic-page-audit/sample-module/src/main/ets/pages/SemanticFixture.ets.txt"], "resourceFile": "examples/semantic-page-audit/sample-module/src/main/resources/base/element/string.json", "resourceName": "semantic_secondary_option", "value": "Option two" },
+    { "id": "input-placeholder-string", "textContentSpecIds": ["input-placeholder-content"], "componentId": "semantic-fixture", "targetModule": "examples/semantic-page-audit/sample-module", "sourceFiles": ["examples/semantic-page-audit/sample-module/src/main/ets/pages/SemanticFixture.ets.txt"], "resourceFile": "examples/semantic-page-audit/sample-module/src/main/resources/base/element/string.json", "resourceName": "semantic_input_placeholder", "value": "Enter content" }
+  ],
+  "resourceBoundaries": [
+    {
+      "id": "decorative-visual-asset",
+      "decisionStatus": "resolved",
+      "purityStatus": "clean",
+      "layoutSlotNodeIds": ["1:1"],
+      "selectedExportNodeId": "1:2",
+      "visualClosureDecisionId": "visual-asset-closure",
+      "visualClosureDecisionStatus": "confirmed",
+      "selectedBounds": { "x": 0.5, "y": 1.5, "width": 15.5, "height": 15.5 },
+      "imageDisplaySize": { "width": 15.5, "height": 15.5 }
+    }
+  ]
+}

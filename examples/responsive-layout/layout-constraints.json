@@ -1,0 +1,181 @@
+{
+  "layoutSpecs": [
+    {
+      "layoutId": "horizontal-scroller",
+      "sourceNodeIds": ["2:10"],
+      "parentLayoutId": null,
+      "axis": "horizontal",
+      "relation": "scroll-fixed-gap",
+      "container": { "mainSizeMode": "viewport", "designMainSize": 375, "padding": { "before": 0, "after": 0, "crossBefore": 0, "crossAfter": 0 } },
+      "crossAlignment": "center",
+      "gap": 24,
+      "children": [
+        { "childId": "tick-0", "sourceNodeIds": [], "role": "scroll-item", "basis": 25, "minSize": 25, "maxSize": 25, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false },
+        { "childId": "dot-0", "sourceNodeIds": [], "role": "scroll-item", "basis": 2, "minSize": 2, "maxSize": 2, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false },
+        { "childId": "tick-1", "sourceNodeIds": [], "role": "scroll-item", "basis": 25, "minSize": 25, "maxSize": 25, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false }
+      ],
+      "evidence": [{ "evidenceId": "scroller-gap", "kind": "design-context", "sourceNodeIds": ["2:10"], "property": "gap", "value": 24 }],
+      "rejectedRelations": [{ "relation": "space-between", "reason": "Design context explicitly uses a fixed 24 vp gap; single-state bounds cannot prove remaining-space distribution", "evidenceIds": ["scroller-gap"] }],
+      "responsiveTests": [320, 375, 480],
+      "clipping": true,
+      "scrolling": true,
+      "overlayEvidence": ["Center marker is overlaid independently"]
+    },
+    {
+      "layoutId": "header-shell",
+      "sourceNodeIds": ["2:20"],
+      "parentLayoutId": null,
+      "axis": "horizontal",
+      "relation": "flex-remainder",
+      "container": { "mainSizeMode": "fill", "designMainSize": 375, "padding": { "before": 0, "after": 0, "crossBefore": 0, "crossAfter": 0 } },
+      "crossAlignment": "center",
+      "gap": 0,
+      "children": [
+        { "childId": "leading-action", "sourceNodeIds": [], "role": "fixed", "basis": 48, "minSize": 48, "maxSize": 48, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false },
+        { "childId": "options", "sourceNodeIds": [], "role": "flex", "basis": null, "minSize": 200, "maxSize": null, "grow": 1, "marginBefore": 0, "marginAfter": 0, "allowShrink": true },
+        { "childId": "trailing-action", "sourceNodeIds": [], "role": "fixed", "basis": 48, "minSize": 48, "maxSize": 48, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false }
+      ],
+      "evidence": [{ "evidenceId": "header-flex", "kind": "design-context", "sourceNodeIds": ["2:20"], "property": "width", "value": "fixed-flex-fixed" }],
+      "rejectedRelations": [{ "relation": "space-between", "reason": "The center option viewport absorbs remaining width; fixed side actions do not participate in spacing distribution", "evidenceIds": ["header-flex"] }],
+      "responsiveTests": [320, 375, 480],
+      "clipping": false,
+      "scrolling": false,
+      "overlayEvidence": []
+    },
+    {
+      "layoutId": "header-options",
+      "sourceNodeIds": ["2:20"],
+      "parentLayoutId": "header-shell",
+      "axis": "horizontal",
+      "relation": "scroll-fixed-gap",
+      "container": { "mainSizeMode": "viewport", "designMainSize": 279, "padding": { "before": 0, "after": 0, "crossBefore": 0, "crossAfter": 0 } },
+      "crossAlignment": "center",
+      "gap": 16,
+      "children": [
+        { "childId": "option-a", "sourceNodeIds": [], "role": "scroll-item", "basis": 76, "minSize": 76, "maxSize": 76, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false },
+        { "childId": "option-b", "sourceNodeIds": [], "role": "scroll-item", "basis": 76, "minSize": 76, "maxSize": 76, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false },
+        { "childId": "option-c", "sourceNodeIds": [], "role": "scroll-item", "basis": 76, "minSize": 76, "maxSize": 76, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false }
+      ],
+      "evidence": [{ "evidenceId": "header-option-gap", "kind": "design-context", "sourceNodeIds": ["2:20"], "property": "gap", "value": 16 }],
+      "rejectedRelations": [{ "relation": "space-between", "reason": "Options use fixed padding and a fixed 16 vp gap; narrow screens switch to scrolling", "evidenceIds": ["header-option-gap"] }],
+      "responsiveTests": [320, 375, 480],
+      "clipping": true,
+      "scrolling": true,
+      "overlayEvidence": []
+    },
+    {
+      "layoutId": "option-list",
+      "sourceNodeIds": ["2:30"],
+      "parentLayoutId": null,
+      "axis": "horizontal",
+      "relation": "scroll-fixed-gap",
+      "container": { "mainSizeMode": "viewport", "designMainSize": 375, "padding": { "before": 16, "after": 16, "crossBefore": 18, "crossAfter": 18 } },
+      "crossAlignment": "start",
+      "gap": 6,
+      "children": [
+        { "childId": "option-a", "sourceNodeIds": [], "role": "scroll-item", "basis": 56, "minSize": 56, "maxSize": 56, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false },
+        { "childId": "option-b", "sourceNodeIds": [], "role": "scroll-item", "basis": 56, "minSize": 56, "maxSize": 56, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false }
+      ],
+      "evidence": [{ "evidenceId": "option-list-layout", "kind": "design-context", "sourceNodeIds": ["2:30"], "property": "padding-gap-item", "value": "16/6/56x88" }],
+      "rejectedRelations": [{ "relation": "space-between", "reason": "Homogeneous options preserve a fixed 56 vp width and fixed 6 vp gap", "evidenceIds": ["option-list-layout"] }],
+      "responsiveTests": [320, 375, 480],
+      "clipping": true,
+      "scrolling": true,
+      "overlayEvidence": []
+    },
+    {
+      "layoutId": "control-row",
+      "sourceNodeIds": ["2:40"],
+      "parentLayoutId": null,
+      "axis": "horizontal",
+      "relation": "flex-remainder",
+      "container": { "mainSizeMode": "fill", "designMainSize": 375, "padding": { "before": 0, "after": 0, "crossBefore": 0, "crossAfter": 0 } },
+      "crossAlignment": "center",
+      "gap": 0,
+      "children": [
+        { "childId": "label", "sourceNodeIds": [], "role": "fixed", "basis": 88, "minSize": 88, "maxSize": 88, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false },
+        { "childId": "track", "sourceNodeIds": [], "role": "flex", "basis": null, "minSize": 100, "maxSize": null, "grow": 1, "marginBefore": 0, "marginAfter": 0, "allowShrink": true },
+        { "childId": "placeholder", "sourceNodeIds": [], "role": "fixed", "basis": 32, "minSize": 32, "maxSize": 32, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false }
+      ],
+      "evidence": [{ "evidenceId": "control-row-flex", "kind": "design-context", "sourceNodeIds": ["2:40"], "property": "width", "value": "fixed-flex-fixed" }],
+      "rejectedRelations": [{ "relation": "space-between", "reason": "The track is the only child that absorbs remaining width", "evidenceIds": ["control-row-flex"] }],
+      "responsiveTests": [320, 375, 480],
+      "clipping": false,
+      "scrolling": false,
+      "overlayEvidence": []
+    },
+    {
+      "layoutId": "footer-shell",
+      "sourceNodeIds": ["2:50"],
+      "parentLayoutId": null,
+      "axis": "horizontal",
+      "relation": "flex-remainder",
+      "container": { "mainSizeMode": "fill", "designMainSize": 375, "padding": { "before": 0, "after": 0, "crossBefore": 0, "crossAfter": 0 } },
+      "crossAlignment": "center",
+      "gap": 0,
+      "children": [
+        { "childId": "leading-action", "sourceNodeIds": [], "role": "fixed", "basis": 58, "minSize": 58, "maxSize": 58, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false },
+        { "childId": "flex-content", "sourceNodeIds": [], "role": "flex", "basis": null, "minSize": 0, "maxSize": null, "grow": 1, "marginBefore": 0, "marginAfter": 0, "allowShrink": true },
+        { "childId": "trailing-action", "sourceNodeIds": [], "role": "fixed", "basis": 58, "minSize": 58, "maxSize": 58, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false }
+      ],
+      "evidence": [{ "evidenceId": "footer-flex", "kind": "design-context", "sourceNodeIds": ["2:50"], "property": "width", "value": "fixed-flex-fixed" }],
+      "rejectedRelations": [{ "relation": "space-between", "reason": "The center content region absorbs remaining width while side actions stay fixed", "evidenceIds": ["footer-flex"] }],
+      "responsiveTests": [320, 375, 480],
+      "clipping": false,
+      "scrolling": false,
+      "overlayEvidence": []
+    },
+    {
+      "layoutId": "scroller-overlay",
+      "sourceNodeIds": ["2:10"],
+      "parentLayoutId": "horizontal-scroller",
+      "axis": "overlay",
+      "relation": "overlay",
+      "container": { "mainSizeMode": "fill", "designMainSize": 375, "padding": { "before": 0, "after": 0, "crossBefore": 0, "crossAfter": 0 } },
+      "crossAlignment": "start",
+      "gap": null,
+      "children": [
+        { "childId": "scroll-content", "sourceNodeIds": [], "role": "overlay", "basis": null, "minSize": 0, "maxSize": null, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false },
+        { "childId": "overlay-marker", "sourceNodeIds": [], "role": "overlay", "basis": 1, "minSize": 1, "maxSize": 1, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false }
+      ],
+      "evidence": [{ "evidenceId": "scroller-overlay-evidence", "kind": "design-context", "sourceNodeIds": ["2:10"], "property": "overlay", "value": "center-marker-over-scroll" }],
+      "rejectedRelations": [{ "relation": "packed-fixed-gap", "reason": "The center marker does not participate in the scrolling content's main-axis arrangement", "evidenceIds": ["scroller-overlay-evidence"] }],
+      "responsiveTests": [320, 375, 480],
+      "clipping": true,
+      "scrolling": false,
+      "overlayEvidence": ["Center marker overlays the scrolling content"]
+    },
+    {
+      "layoutId": "page-vertical",
+      "sourceNodeIds": ["2:60"],
+      "parentLayoutId": null,
+      "axis": "vertical",
+      "relation": "flex-remainder",
+      "container": { "mainSizeMode": "fill", "designMainSize": 420, "padding": { "before": 0, "after": 0, "crossBefore": 0, "crossAfter": 0 } },
+      "crossAlignment": "stretch",
+      "gap": 0,
+      "children": [
+        { "childId": "scroller", "sourceNodeIds": [], "role": "fixed", "basis": 24, "minSize": 24, "maxSize": 24, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false },
+        { "childId": "header", "sourceNodeIds": [], "role": "fixed", "basis": 48, "minSize": 48, "maxSize": 48, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false },
+        { "childId": "content", "sourceNodeIds": [], "role": "flex", "basis": null, "minSize": 196, "maxSize": null, "grow": 1, "marginBefore": 0, "marginAfter": 0, "allowShrink": true },
+        { "childId": "footer", "sourceNodeIds": [], "role": "fixed", "basis": 52, "minSize": 52, "maxSize": 52, "grow": 0, "marginBefore": 0, "marginAfter": 0, "allowShrink": false }
+      ],
+      "evidence": [{ "evidenceId": "page-vertical-evidence", "kind": "design-context", "sourceNodeIds": ["2:60"], "property": "height", "value": "fixed-fixed-flex-fixed" }],
+      "rejectedRelations": [{ "relation": "space-between", "reason": "Only the content region absorbs remaining height; the scroller, header, and footer remain fixed", "evidenceIds": ["page-vertical-evidence"] }],
+      "responsiveTests": [320, 375, 480],
+      "clipping": true,
+      "scrolling": false,
+      "overlayEvidence": []
+    }
+  ],
+  "layoutBindings": [
+    { "layoutBindingId": "bind-scroller", "layoutId": "horizontal-scroller", "componentId": "responsive-page", "targetBuilder": "HorizontalScroller", "arkuiStrategy": "scroll-fixed-gap", "propertyBindings": [{ "target": "Row", "property": "space", "value": 24, "factPath": "gap" }, { "target": "Scroll", "property": "scrolling", "value": true, "factPath": "scrolling" }], "forbiddenProperties": ["justifyContent:SpaceBetween", "child.margin"], "testWidths": [320, 375, 480] },
+    { "layoutBindingId": "bind-header-shell", "layoutId": "header-shell", "componentId": "responsive-page", "targetBuilder": "Header", "arkuiStrategy": "flex-remainder", "propertyBindings": [{ "target": "options", "property": "layoutWeight", "value": 1, "factPath": "children[options].grow" }], "forbiddenProperties": ["justifyContent:SpaceBetween"], "testWidths": [320, 375, 480] },
+    { "layoutBindingId": "bind-header-options", "layoutId": "header-options", "componentId": "responsive-page", "targetBuilder": "Header", "arkuiStrategy": "scroll-fixed-gap", "propertyBindings": [{ "target": "Row", "property": "space", "value": 16, "factPath": "gap" }, { "target": "Scroll", "property": "scrolling", "value": true, "factPath": "scrolling" }], "forbiddenProperties": ["justifyContent:SpaceBetween", "layoutWeight"], "testWidths": [320, 375, 480] },
+    { "layoutBindingId": "bind-option-list", "layoutId": "option-list", "componentId": "responsive-page", "targetBuilder": "OptionPanel", "arkuiStrategy": "scroll-fixed-gap", "propertyBindings": [{ "target": "List", "property": "space", "value": 6, "factPath": "gap" }, { "target": "List", "property": "paddingLeft", "value": 16, "factPath": "container.padding.before" }, { "target": "List", "property": "paddingRight", "value": 16, "factPath": "container.padding.after" }], "forbiddenProperties": ["child.margin", "item.layoutWeight"], "testWidths": [320, 375, 480] },
+    { "layoutBindingId": "bind-control-row", "layoutId": "control-row", "componentId": "responsive-page", "targetBuilder": "ControlRow", "arkuiStrategy": "flex-remainder", "propertyBindings": [{ "target": "Slider", "property": "layoutWeight", "value": 1, "factPath": "children[track].grow" }, { "target": "label", "property": "width", "value": 88, "factPath": "children[label].basis" }, { "target": "placeholder", "property": "width", "value": 32, "factPath": "children[placeholder].basis" }], "forbiddenProperties": ["justifyContent:SpaceBetween", "visible-value-placeholder"], "testWidths": [320, 375, 480] },
+    { "layoutBindingId": "bind-footer", "layoutId": "footer-shell", "componentId": "responsive-page", "targetBuilder": "Footer", "arkuiStrategy": "flex-remainder", "propertyBindings": [{ "target": "flex-content", "property": "layoutWeight", "value": 1, "factPath": "children[flex-content].grow" }, { "target": "leading-action", "property": "width", "value": 58, "factPath": "children[leading-action].basis" }, { "target": "trailing-action", "property": "width", "value": 58, "factPath": "children[trailing-action].basis" }], "forbiddenProperties": ["justifyContent:SpaceBetween", "text-row"], "testWidths": [320, 375, 480] },
+    { "layoutBindingId": "bind-scroller-overlay", "layoutId": "scroller-overlay", "componentId": "responsive-page", "targetBuilder": "HorizontalScroller", "arkuiStrategy": "overlay", "propertyBindings": [{ "target": "Stack", "property": "crossAlignment", "value": "start", "factPath": "crossAlignment" }, { "target": "marker", "property": "width", "value": 1, "factPath": "children[overlay-marker].basis" }], "forbiddenProperties": ["absolute-positioned-scroll-items"], "testWidths": [320, 375, 480] },
+    { "layoutBindingId": "bind-page-vertical", "layoutId": "page-vertical", "componentId": "responsive-page", "targetBuilder": "build", "arkuiStrategy": "flex-remainder", "propertyBindings": [{ "target": "root", "property": "height", "value": "fill", "factPath": "container.mainSizeMode" }, { "target": "scroller", "property": "height", "value": 24, "factPath": "children[scroller].basis" }, { "target": "header", "property": "height", "value": 48, "factPath": "children[header].basis" }, { "target": "content", "property": "layoutWeight", "value": 1, "factPath": "children[content].grow" }, { "target": "footer", "property": "height", "value": 52, "factPath": "children[footer].basis" }], "forbiddenProperties": ["nested-height:100%", "justifyContent:SpaceBetween"], "testWidths": [320, 375, 480] }
+  ]
+}

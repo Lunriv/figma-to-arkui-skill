@@ -1,0 +1,55 @@
+{
+  "decisionAuthorities": [
+    {
+      "id": "script-selected-component",
+      "decisionPacketId": "",
+      "impact": "high",
+      "decisionDomains": ["business-semantic", "component-boundary", "arkui-api"],
+      "aiDecisionRequired": false,
+      "decisionMaker": "script",
+      "aiDecisionStatus": "unresolved",
+      "decisionProvenance": "cached-evidence-revalidated",
+      "contextDeltaChecked": false,
+      "documentEvidenceIds": []
+    }
+  ],
+  "requirements": [
+    {
+      "id": "known-failures",
+      "decisionAuthorityIds": ["script-selected-component"],
+      "sourceFiles": ["examples/semantic-page-audit/sample-module/src/main/ets/pages/InvalidFixture.ets.txt"],
+      "requiredComponents": ["Tabs", "TabContent", "List", "ListItem", "TextArea"],
+      "requiredInteractions": ["tabs-change", "scroll", "item-selection", "input"],
+      "requiredPresentationApi": "none",
+      "requiredBindingHostSourceNodeIds": [],
+      "requireForEach": true,
+      "forbidTextGlyphFallback": true,
+      "forbidFixedBlank": true
+    }
+  ],
+  "layoutSpecs": [],
+  "layoutBindings": [],
+  "textContents": [
+    { "id": "primary-mode-content", "value": "Mode one", "usage": "display", "origin": "design-static" },
+    { "id": "secondary-mode-content", "value": "Mode two", "usage": "display", "origin": "design-static" },
+    { "id": "input-placeholder-content", "value": "Enter content", "usage": "placeholder", "origin": "design-static" }
+  ],
+  "stringResources": [
+    { "id": "primary-mode-string", "textContentSpecIds": ["primary-mode-content"], "componentId": "drawing-fixture", "targetModule": "examples/semantic-page-audit/sample-module", "sourceFiles": ["examples/semantic-page-audit/sample-module/src/main/ets/pages/InvalidFixture.ets.txt"], "resourceFile": "examples/semantic-page-audit/sample-module/src/main/resources/base/element/string.json", "resourceName": "semantic_primary_mode", "value": "Mode one" },
+    { "id": "secondary-mode-string", "textContentSpecIds": ["secondary-mode-content"], "componentId": "drawing-fixture", "targetModule": "examples/semantic-page-audit/sample-module", "sourceFiles": ["examples/semantic-page-audit/sample-module/src/main/ets/pages/InvalidFixture.ets.txt"], "resourceFile": "examples/semantic-page-audit/sample-module/src/main/resources/base/element/string.json", "resourceName": "semantic_secondary_mode", "value": "Mode two" },
+    { "id": "input-placeholder-string", "textContentSpecIds": ["input-placeholder-content"], "componentId": "drawing-fixture", "targetModule": "examples/semantic-page-audit/sample-module", "sourceFiles": ["examples/semantic-page-audit/sample-module/src/main/ets/pages/InvalidFixture.ets.txt"], "resourceFile": "examples/semantic-page-audit/sample-module/src/main/resources/base/element/string.json", "resourceName": "semantic_input_placeholder", "value": "Enter content" }
+  ],
+  "resourceBoundaries": [
+    {
+      "id": "wrong-container-image",
+      "decisionStatus": "manual-review",
+      "purityStatus": "contaminated",
+      "layoutSlotNodeIds": ["1:1"],
+      "selectedExportNodeId": "1:1",
+      "visualClosureDecisionId": "",
+      "visualClosureDecisionStatus": "unresolved",
+      "selectedBounds": { "x": 1.38, "y": 0, "width": 135, "height": 30 },
+      "imageDisplaySize": { "width": 16, "height": 16 }
+    }
+  ]
+}

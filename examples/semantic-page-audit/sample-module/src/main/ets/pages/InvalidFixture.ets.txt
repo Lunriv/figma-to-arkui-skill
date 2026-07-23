@@ -1,0 +1,17 @@
+@Component
+struct DrawingFixture {
+  build() {
+    Column() {
+      Row() {
+        Text('Mode one')
+        Text('Mode two')
+      }
+      Row() {
+        Text('Enter content')
+        Text('✓')
+      }
+      Blank()
+        .height(12);
+    }
+  }
+}
